@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 if(isian_nama_depan.isEmpty()){
                     Toast.makeText(getApplicationContext(), "Isian masih kosong", Toast.LENGTH_SHORT).show();
                 }else{
-                    String nama_lengkap = isian_nama_depan.concat(" ").concat(isian_nama_belakang).concat(isian_umur);
+                    String nama_lengkap = isian_nama_depan.concat(" ").concat(isian_nama_belakang.concat()).concat(isian_umur);
                     daftar_nama.clear();
                     daftar_nama.add(nama_lengkap);
                     edNamaDepan.setText("");
@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                     intent_list.putStringArrayListExtra("daftar_nama", daftar_nama);
                     startActivity(intent_list);
                 }
+
             }
         });
     }
