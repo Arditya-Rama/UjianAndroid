@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
                     for (int i = 0; i < jumlah_umur; i++) {
                         String status;
-//                        pengkondisian umur by Bagoes
+
                         if (jumlah_umur >= 0 && jumlah_umur <= 10) {
                             status = "anak";
                         } else if (jumlah_umur >= 11 && jumlah_umur <= 20) {
