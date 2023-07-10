@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
                 String isian_nama_depan = edNamaDepan.getText().toString();
                 String isian_nama_belakang = edNamaBelakang.getText().toString();
                 String isian_umur = edUmur.getText().toString();
-
                 if(isian_nama_depan.isEmpty()){
                     Toast.makeText(getApplicationContext(), "Isian masih kosong", Toast.LENGTH_SHORT).show();
                 }else{
@@ -42,20 +41,32 @@ public class MainActivity extends AppCompatActivity {
                     daftar_nama.clear();
 
                     for (int i = 0; i < jumlah_umur; i++) {
-                        daftar_nama.add(nama_lengkap);
+                        String status;
+//                        pengkondisian umur by Bagoes
+                        if (jumlah_umur >= 0 && jumlah_umur <= 10) {
+                            status = "anak";
+                        } else if (jumlah_umur >= 11 && jumlah_umur <= 20) {
+                            status = "remaja";
+                        } else if (jumlah_umur >= 21 && jumlah_umur <= 30) {
+                            status = "dewasa";
+                        } else {
+                            status = "tua";
+                        }
+
+                        if (i % 2 == 0) {
+                            String nama_dengan_status = i + " " + nama_lengkap + ". Status : " + status;
+                            daftar_nama.add(nama_dengan_status);
+                        }
                     }
-                    daftar_nama.add(nama_lengkap);
+
                     edNamaDepan.setText("");
                     edNamaBelakang.setText("");
                     edUmur.setText("");
+
                     intent_list.putStringArrayListExtra("daftar_nama", daftar_nama);
-
-                    for (String nama : daftar_nama) {
-                        System.out.println(nama);
-                    }
-
                     startActivity(intent_list);
                 }
+
 
             }
         });
